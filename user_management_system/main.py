@@ -178,34 +178,31 @@ class SignupFrame(ctk.CTkFrame):
         self.username = self.username_entry.get()
         self.password = self.password_entry.get()
 
-        if validate_signup(self.firstname, self.middlename, self.lastname, self.email, self.username, self.password):
+        if self.validate_signup():
             # If the information is valid:
             print("valid")
-            self.signup_confirmation()
+            self.confirm_signup()
         else:
             print("invalid")
 
-    def signup_confirmation(self):
-        print(self.firstname)
-
-def validate_signup(firstname, middlename, lastname, email, username, password):
+    def validate_signup(self):
         """Check if the information entered is valid."""
 
         is_valid = None
 
-        if not is_names_valid(firstname, middlename, lastname):
+        if not is_names_valid(self.firstname, self.middlename, self.lastname):
             # If name is not valid:
             is_valid = False
 
-        if not is_email_valid(email):
+        if not is_email_valid(self.email):
             # If email is not valid:
             is_valid = False
         
-        if not is_username_valid(username):
+        if not is_username_valid(self.username):
             # If username is not valid:
             is_valid = False
         
-        if not is_password_valid(password):
+        if not is_password_valid(self.password):
             # If password is not valid:
             is_valid = False
 
@@ -217,6 +214,24 @@ def validate_signup(firstname, middlename, lastname, email, username, password):
 
         # If all information entered is valid return true.
         return is_valid
+    
+    def confirm_signup(self):
+        """Signup information Confirmation Messagebox."""
+        result = CTkMessagebox(
+            master= self.master,
+            title= "Confirm Your Signup Information",
+            message= 
+            "\nFirst Name: " + self.firstname +
+            "\nMiddle Name: " + self.middlename +
+            "\nLast Name: " + self.lastname +
+            "\nEmail Name: " + self.email +
+            "\nUsername: " + self.username +
+            "\n\nAre these informations correct?",
+            icon = "question",
+            option_1="Cancel",
+            option_2="No",
+            option_3="Yes"
+        )
     
 def is_names_valid(*names):
         """Check if names are at least 2 characters and only alphabetic."""
@@ -232,7 +247,8 @@ def is_names_valid(*names):
         return True
 
 def is_email_valid(email):
-    """Chcek if email entered is valid."""
+    """Check if email entered is valid."""
+
     return True
 
 def is_username_valid(username: str):
