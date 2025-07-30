@@ -16,6 +16,7 @@ A Python based user management system (customtkinter - a modern GUI library) GUI
 ## Additional Features
 - **Theme Mode Toggle**: Application toggles between light and dark mode (The option can be found in the menubar).
 - **Reset Form**: Users can reset the form by navigating to the Settings menu in the menubar and clicking Reset Form. This will reset the form currently being viewed.
+- **Password Visibility Toggle**: A button along side the password entry that toggles the visibility of the password. "Show" and "Hide" password.
 
 ## Setup Instruction
 
