@@ -217,13 +217,14 @@ class SignupFrame(ctk.CTkFrame):
     
     def confirm_signup(self):
         """Signup information Confirmation Messagebox."""
+
+        # Opens messagebox asking user to confirm his information
         result = CTkMessagebox(
             master= self.master,
             title= "Confirm Your Signup Information",
+            wraplength = 330,
             message= 
-            "\nFirst Name: " + self.firstname +
-            "\nMiddle Name: " + self.middlename +
-            "\nLast Name: " + self.lastname +
+            "Full Name: " + self.firstname + " " + self.middlename + " " + self.lastname +
             "\nEmail Name: " + self.email +
             "\nUsername: " + self.username +
             "\n\nAre these informations correct?",
